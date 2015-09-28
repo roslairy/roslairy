@@ -100,6 +100,9 @@
 .blog-archive-content{
     margin-top: 30px;
 }
+.blog-archive-content p{
+    text-indent: 2em;
+}
 .blog-archive-like{
     margin-top: 60px;
     width: 80px;
