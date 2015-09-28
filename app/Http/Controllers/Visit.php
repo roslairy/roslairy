@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use App\View;
+use App\Comment;
+use Illuminate\Support\Facades\Validator;
 
 class Visit extends Controller {
 	/**
@@ -70,6 +72,42 @@ class Visit extends Controller {
 		];
 		
 		return view('archive', $data);
+	}
+	
+	public function sendComment(){
+		$v = Validator::make(Input::all(), [
+				'id' => 'required|numeric',
+				'nickname' => 'required',
+				'content' => 'required',
+		]);
+		if ($v->fails()){
+			return redirect()->route('error', ['error' => 'param-wrong']);
+		}
+		
+		$archive = Archive::find(Input::get('id'));
+		if ($archive == null) {
+			return redirect()->route('error', ['error' => 'archive-not-exist']);
+		}
+		
+		$comment = new Comment();
+		$comment->archive_id = Input::get('id');
+		$comment->nickname = Input::get('nickname');
+		$comment->content = Input::get('content');
+		$comment->save();
+		
+		return redirect()->route('archive', ['id' => Input::get('id')]);
+	}
+	
+	public function like(){
+		$archive = Archive::find(Input::get('id', -1));
+		if ($archive == null) {
+			return redirect()->route('error', ['error' => 'archive-not-exist']);
+		}
+		
+		$archive->like++;
+		$archive->save();
+
+		return redirect()->route('archive', ['id' => Input::get('id')]);
 	}
 	
 	public function tryMind(){

@@ -21,6 +21,9 @@ Route::get('/search', ['as' => 'search', 'uses' => 'Visit@search']);
 Route::get('/archive/{id}', ['as' => 'archive', 'uses' => 'Visit@archive']);
 Route::post('/try-mind', ['as' => 'try-mind', 'uses' => 'Visit@tryMind']);
 
+Route::post('/send-comment', ['as' => 'send-comment', 'uses' => 'Visit@sendComment']);
+Route::get('/like', ['as' => 'like', 'uses' => 'Visit@like']);
+
 Route::get('/error', ['as' => 'error', 'uses' => 'Visit@error']);
 
 Route::post('/try-login', ['as' => 'try-login', 'uses' => 'Admin@tryLogin']);
