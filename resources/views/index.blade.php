@@ -19,9 +19,13 @@
 	            <small class="text-primary"> {{ $archive->category }}</small>
 	        </div>
             <div class="h5 blog-essay-content">
+                @if ($archive->category != '朔心' || session('mindPermission', 'false') == 'true')
             	{{ strip_tags($archive->content) }}
+                @else
+                *** 朔心内容已经被加密 ***
+                @endif
             </div>
-            @if ($archive->category != '朔心' || session('mindPermission') == 'true')
+            @if ($archive->category != '朔心' || session('mindPermission', 'false') == 'true')
             <a href="{{ url('archive/'.$archive->id) }}" class="btn btn-primary blog-essay-btn">阅读全文</a>
             @else
             <button id="read-{{ $archive->id }}" type="button" class="btn btn-primary blog-essay-btn" data-toggle="modal" data-target="#pass-modal" data-id="{{ $archive->id }}">阅读全文</button>
