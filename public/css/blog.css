@@ -1,0 +1,147 @@
+.main-container{
+    min-height: 1000px;
+}
+.navbar{
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.header-img{
+    height: 700px;
+    background-image: url("../img/header.png");
+    background-size: cover;
+    background-position: center;
+}
+.header-title{
+    padding-top: 300px;
+    max-width: 700px;
+    width: 80%;
+}
+.navbar-brand{
+    font-size: 1.4em;
+}
+.blog-essay-block, .blog-aside-block{
+    margin: 30px 10px;
+    padding: 30px 40px;
+    padding-left: 50px;
+    background-color: #fff;
+    border-left: solid 10px #6093a6;
+}
+.block-essay-title, .block-aside-title{
+    font-size: 1.5em;
+    color: #6093a6;
+    width: 100%;
+    background-image: url("../img/dotline.png");
+    background-position-y: 80%;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+.block-essay-title a, .block-aside-title span{
+    background-color: #fff;
+    padding-right: 10px;
+}
+.blog-essay-info{
+    margin-top: -10px;
+}
+.blog-essay-info small{
+    font-size: 0.65em;
+    padding-right: 10px;
+}
+.blog-essay-content{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 1em;
+    line-height: 1.3em;
+    overflow-y: hidden;
+    max-height: 3.9em;
+}
+.blog-essay-btn, .blog-paginator a{
+    border-radius: 0;
+}
+.blog-paginator{
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.blog-aside-block{
+    border-left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.block-aside-search{
+    margin-top: 30px;
+}
+.footer{
+    background-color: #34495e;
+    color: #fff;
+    padding-top: 10px;
+}
+.footer p {
+    margin-bottom: 10px;
+}
+.footer p small{
+    padding-right: 20px;
+}
+
+
+/*
+
+*/
+
+.blog-archive-block{
+    margin: 30px 10px;
+    padding: 30px 40px;
+    background-color: #fff;
+    border-top: solid 10px #6093a6;
+}
+.blog-archive-title{
+
+}
+.blog-archive-content{
+    margin-top: 30px;
+}
+.blog-archive-like{
+    margin-top: 60px;
+    width: 80px;
+}
+.blog-comment-block{
+    margin: 30px 10px;
+    padding: 30px 40px;
+    background-color: #f8f8f8;
+}
+.blog-comment-speaker{
+    font-size: 0.8em;
+    width: 100%;
+    border-bottom: 1px solid #6093a6;
+}
+.blog-comment-content{
+    font-size: 0.9em;
+}
+#umeditor{
+    width: 100%;
+    height: 200px;
+}
+.blog-comment-submit{
+    margin-top: 20px;
+}
+.blog-table{
+    margin-top: 30px;
+}
+.blog-table th{
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 15em;
+    text-overflow: ellipsis;
+    font-weight: 500;
+}
+.blog-xs-pagination{
+    height: 30px;
+    margin: 20px 0;
+}
+.edui-editor-body .edui-body-container p{
+    font-family: Lato,'STXihei Light','Microsoft YaHei',STXihei,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 1.2em;
+    color: #34495e;
+    text-indent: 2em;
+}
