@@ -21,6 +21,8 @@ class ViewWatch {
 		$response = $next ( $request );
 		
 		$ignore = [
+				'222.20.35.168',
+				'127.0.0.1',
 		];
 		
 		if (array_search($request->ip(), $ignore) == false){
