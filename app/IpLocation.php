@@ -33,7 +33,7 @@ class IpLocation{
 				}
 		
 				$view->location = $location;
-			} catch (Exception $e) {
+			} catch (\Exception $e) {
 				Log::warn($e->getMessage());
 			}
 		
