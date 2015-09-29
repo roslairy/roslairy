@@ -3,6 +3,8 @@
 <head lang="zh">
     <meta charset="UTF-8">
     <title>{{ trans("title.$pageName") }} | roslairy的小窝</title>
+    <meta name="keywords" content="博客,个人博客"/>
+    <meta name="description" content="这里是roslairy的小窝，记录了一些技术笔记和生活点滴" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/flat-ui.min.css">
     @yield('extCss', '')
