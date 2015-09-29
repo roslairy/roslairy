@@ -2,6 +2,8 @@
 <html>
 <head lang="zh">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ trans("title.$pageName") }} | roslairy的小窝</title>
     <meta name="keywords" content="博客,个人博客"/>
     <meta name="description" content="这里是roslairy的小窝，记录了一些技术笔记和生活点滴" />
