@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -38,4 +39,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::get('comment-delete', ['as' => 'comment-delete', 'uses' => 'Admin@commentDelete']);
 	Route::get('view', ['as' => 'view-manage', 'uses' => 'Admin@view']);
 	Route::get('view-delete', ['as' => 'view-delete', 'uses' => 'Admin@viewDelete']);
+});
+
+Route::get('/fixTable', function(){
+	Schema::table('views', function ($table){
+		$table->string('location')->after('url');
+	});
 });

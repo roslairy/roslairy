@@ -10,6 +10,7 @@
                     <thead>
                     <th>#</th>
                     <th>IP</th>
+                    <th>地理位置</th>
                     <th>url</th>
                     <th>访问时间</th>
                     <th>操作</th>
@@ -19,6 +20,7 @@
                     <tr>
                         <th>{{ $view->id }}</th>
                         <th>{{ $view->ip }}</th>
+                        <th>{{ $view->location }}</th>
                         <th>{{ $view->url }}</th>
                         <th>{{ $view->created_at }}</th>
                         <th>
