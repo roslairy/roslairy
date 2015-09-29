@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
+use App\IpLocation;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -41,8 +42,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::get('view-delete', ['as' => 'view-delete', 'uses' => 'Admin@viewDelete']);
 });
 
-Route::get('/fixTable', function(){
-	Schema::table('views', function ($table){
-		$table->string('location')->after('url');
-	});
+Route::get('/testIp', function(){
+	IpLocation::detectAllLocation();
 });
