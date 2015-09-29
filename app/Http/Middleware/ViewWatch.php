@@ -28,7 +28,6 @@ class ViewWatch {
 		if (array_search($request->ip(), $ignore) === false){
 			$ip = $request->ip();
 			$path = $request->path();
-			var_dump($ip);
 			
 			$view = new View();
 			$view->ip = $ip;

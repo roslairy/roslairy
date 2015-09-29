@@ -41,7 +41,3 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::get('view', ['as' => 'view-manage', 'uses' => 'Admin@view']);
 	Route::get('view-delete', ['as' => 'view-delete', 'uses' => 'Admin@viewDelete']);
 });
-
-Route::get('/testIp', function(){
-	IpLocation::detectAllLocation();
-});
