@@ -20,7 +20,7 @@
 	        </div>
             <div class="h5 blog-essay-content">
                 @if ($archive->category != '朔心' || session('mindPermission', 'false') == 'true')
-            	{{ substr(strip_tags($archive->content), 0, 50) }}
+            	{{ mb_substr(strip_tags($archive->content), 0, 50) }}
                 @else
                 *** 朔心内容已经被加密 ***
                 @endif
