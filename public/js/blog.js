@@ -69,8 +69,6 @@ function autoSave(url){
         content : window.um.getContent()
     };
 
-    console.log(data);
-
     $.ajax({
         type: "post",
         url: url,

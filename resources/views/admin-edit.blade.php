@@ -11,7 +11,7 @@
 @section("body")
 <div class="container main-container">
     <div class="row">
-        <form class="blog-archive-block outline-box" method="post" enctype="multipart/form-data">
+        <form class="blog-archive-block outline-box" method="post" enctype="multipart/form-data" action="{{ route("archive-save") }}">
             <a href="#" class="thumbnail picture-preview">
                 <img id="picture-preview-img" src="">
             </a>
