@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>{{ isset($pageName) ? ($pageName != "archive" ? trans("title.$pageName") : $archive->title) : "未知页面" }} | Roslairy的小窝</title>
+    <title>{{ isset($pageName) ? ($pageName != "archive" ? trans("title.$pageName") : $archive->title) : "未知页面" }} | Roslairy的小居</title>
     <meta name="keywords" content="博客,个人博客"/>
     <meta name="description" content="这里是roslairy的个人博客，主要记录了一些平时研究的编程技术和自己的生活点滴" />
     <link rel="stylesheet" href="/css/normalize.css">
