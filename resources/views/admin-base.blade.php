@@ -9,6 +9,7 @@
     <meta name="description" content="这里是roslairy的个人博客，主要记录了一些平时研究的编程技术和他自己的生活点滴" />
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    @yield('extLibCss', '')
     <link rel="stylesheet" href="/css/blog.css">
     @yield('extCss', '')
     <link type="image/x-icon" rel="shortcut icon" href="/img/favicon.ico">

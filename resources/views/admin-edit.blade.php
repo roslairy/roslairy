@@ -3,9 +3,12 @@
 @section("header-img")
 @stop
 
+@section("extLibCss")
+<link href="/um/themes/default/css/umeditor.min.css" type="text/css" rel="stylesheet">
+@stop
+
 @section("extCss")
 <link rel="stylesheet" href="/css/admin.css">
-<link href="/um/themes/default/css/umeditor.min.css" type="text/css" rel="stylesheet">
 @stop
 
 @section("body")
