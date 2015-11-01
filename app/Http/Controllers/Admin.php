@@ -12,6 +12,8 @@ use App\Comment;
 use App\View;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Request as Req;
+use Illuminate\Support\Facades\Log;
 
 class Admin extends Controller {
 	
@@ -30,17 +32,16 @@ class Admin extends Controller {
 	public function tryLogout(){
 		Session::forget('login');
 		Auth::logout();
-		return redirect()->route('all');
+		return redirect()->route('index');
 	}
 	
 	public function archive(){
 		$data = [
 				'pageName' => 'archive-manage',
-				'superAuth' => Auth::user()->email == 'wpikuy',
 				'archives' => Archive::getAll(15)
 		];
 		
-		return view('archive-manage', $data);
+		return view('admin-archive', $data);
 	}
 	
 	public function archiveEdit($id){
@@ -50,12 +51,11 @@ class Admin extends Controller {
 		}
 
 		$data = [
-				'pageName' => 'archive-manage',
-				'superAuth' => Auth::user()->email == 'wpikuy',
+				'pageName' => 'archive-edit',
 				'archive' => $archive
 		];
 		
-		return view('archive-edit', $data);
+		return view('admin-edit', $data);
 	}
 	
 	public function archiveNew(){
@@ -72,7 +72,7 @@ class Admin extends Controller {
 				'archive' => $archive
 		];
 		
-		return view('archive-edit', $data);
+		return view('admin-edit', $data);
 	}
 	
 	public function archiveDelete(){
@@ -102,11 +102,39 @@ class Admin extends Controller {
 		$archive = Archive::findOrNew(Input::get('id', -1));
 		
 		$archive->title = Input::get('title');
-		$archive->category = trans('category.'.Input::get('category'));
+		$archive->category = Input::get('category');
+		$archive->content = Input::get('content');
+		$archive->save();
+		
+		if (Req::hasFile("picture")){
+			$fileName = str_random(8).$archive->id.".jpg";
+			$file = Req::file("picture");
+			$file->move(public_path("uploadimg"), $fileName);
+			$archive->picture = $fileName;
+			$archive->save();
+		}
+
+		return redirect()->route('archive-manage');
+	}
+	
+	public function archiveAjax(){
+		$v = Validator::make(Input::all(), [
+				'title' => 'required',
+				'category' => 'required',
+				'content' => 'required',
+		]);
+		if ($v->fails()){
+			return response()->json(["message" => $v->messages()], 403);
+		}
+		
+		$archive = Archive::findOrNew(Input::get('id', -1));
+		
+		$archive->title = Input::get('title');
+		$archive->category = Input::get('category');
 		$archive->content = Input::get('content');
 		$archive->save();
 
-		return redirect()->route('archive-manage');
+		return response()->json(["id" => $archive->id]);
 	}
 	
 	public function comment(){
@@ -116,7 +144,7 @@ class Admin extends Controller {
 				'comments' => Comment::getAll()
 		];
 		
-		return view('comment-manage', $data);
+		return view('admin-comment', $data);
 	}
 	
 	public function commentDelete(){
@@ -130,25 +158,25 @@ class Admin extends Controller {
 		return redirect()->route('comment-manage');
 	}
 	
-	public function view(){
-		$data = [
-				'pageName' => 'view-manage',
-				'superAuth' => Auth::user()->email == 'wpikuy',
-				'views' => View::getAll()
-		];
+// 	public function view(){
+// 		$data = [
+// 				'pageName' => 'view-manage',
+// 				'superAuth' => Auth::user()->email == 'wpikuy',
+// 				'views' => View::getAll()
+// 		];
 		
-		return view('view-manage', $data);
-	}
+// 		return view('admin.view-manage', $data);
+// 	}
 	
-	public function viewDelete(){
-		$view = View::find(Input::get('id', -1));
-		if ($view == null) {
-			return redirect()->route('error', ['error' => 'view-not-exist']);
-		}
+// 	public function viewDelete(){
+// 		$view = View::find(Input::get('id', -1));
+// 		if ($view == null) {
+// 			return redirect()->route('error', ['error' => 'view-not-exist']);
+// 		}
 		
-		$view->delete();
+// 		$view->delete();
 
-		return redirect()->route('view-manage');
-	}
+// 		return redirect()->route('view-manage');
+// 	}
 	
 }

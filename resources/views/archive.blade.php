@@ -1,49 +1,52 @@
-@extends('visit-base')
+@extends("base")
 
-@section('content')
-<div class="row">
-    <div class="col-md-9">
-        <div class="blog-archive-block">
-            <div class="blog-archive-title text-center h4">{{ $archive->title }}</div>
-            <div class="blog-archive-info text-center small">{{ $archive->created_at }}</div>
-            <article class="blog-archive-content">
-                {!! $archive->content !!}
+@section("header-img")
+@stop
+
+@section("extCss")
+<link rel="stylesheet" href="/css/archive.css">
+@stop
+
+@section("body")
+<div class="container main-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <article class="article-block outline-box">
+                <h2 class="article-title text-center">{{ $archive->title }}</h2>
+                <h4 class="article-info text-center">{{ $archive->created_at->toDateString() }} <small>{{ trans("category.".$archive->category) }} {{ $archive->like }}个赞</small> 
+                @if ($authed)
+                <a class="btn btn-primary btn-xs" href="{{ route("archive-edit", ["id" => $archive->id]) }}">编辑</a>
+                @endif
+                </h4>
+                <div class="article-content">
+                    {!! $archive->content !!}
+                </div>
+                <div class="like-wrapper center-block">
+                    <button class="btn btn-primary like" data-id="{{ $archive->id }}">赞</button>
+                </div>
             </article>
-            <div class="blog-archive-like center-block">
-                <a class="btn btn-primary" href="{{ route('like', ['id' => $archive->id]) }}">赞 <span class="badge"> {{ $archive->like }}</span> </a>
-            </div>
         </div>
-        <div class="blog-archive-block">
-            <div class="h4 block-aside-title"><span>评论</span></div>
-            @foreach($archive->comments as $comment)
-            <div class="blog-comment-block">
-                <p class="blog-comment-speaker">{{ $comment->nickname }}:<small class="pull-right">{{ $comment->created_at->toDateString() }}</small></p>
-                <p class="blog-comment-content">{{ $comment->content }}</p>
-            </div>
-            @endforeach
-            <div class="h4 block-aside-title"><span>发表评论</span></div>
-            <form class="blog-comment-block" action="{{ route('send-comment') }}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="col-sm-4">
+            <form class="docomment-block outline-box" method="post" action="{{ route("send-comment") }}">
                 <input type="hidden" name="id" value="{{ $archive->id }}">
-                <div class="form-group" id="nickName-wrapper">
-                    <label for="nickName">昵称： <small class="text-info">昵称可以随便输入</small></label>
-                    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="名称" required>
+                <h3 class="h3-title">发表评论</h3>
+                <div class="form-group">
+                    <input id="input-nickname" name="nickname" type="text" class="form-control" placeholder="昵称" required>
                 </div>
-                <div class="form-group" id="nickName-wrapper">
-                     <textarea class="form-control blog-textarea" id="content" name="content" placeholder="评论内容" rows="3" required></textarea>
+                <div class="form-group">
+                    <textarea id="input-comment" name="content" class="form-control" rows="3" placeholder="评论内容" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary blog-comment-submit">提交</button>
+                <button class="btn btn-primary">提交</button>
             </form>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="blog-aside-block">
-            <div class="h4 block-aside-title"><span>搜索</span></div>
-            <div class="input-group block-aside-search">
-                <input type="text" class="form-control" placeholder="寻找...">
-                <span class="input-group-btn">
-                    <a class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-                </span>
+            <div class="comment-block outline-box">
+                <h3 class="h3-title">评论</h3>
+                @foreach($archive->comments as $comment)
+                <div class="comment">
+                    <h5 class="comment-author">{{ $comment->nickname }} <small class="comment-time">2015-10-31</small></h5>
+                    <p>{{ $comment->content }}</p>
+                    <button type="button" class="btn btn-primary btn-xs comment-reply" data-author="{{ $comment->nickname }}">回复</button>
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
+use App\GeoipParser;
 
 class ViewWatch {
 	/**
@@ -18,7 +19,6 @@ class ViewWatch {
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next) {
-		$response = $next ( $request );
 		
 		$ignore = [
 				'222.20.35.168',
@@ -32,10 +32,11 @@ class ViewWatch {
 			$view = new View();
 			$view->ip = $ip;
 			$view->url = $path;
+			$view->location = GeoipParser::parse($ip);
 			
 			$view->save();
 		}
 		
-		return $response;
+		return $next ( $request );
 	}
 }

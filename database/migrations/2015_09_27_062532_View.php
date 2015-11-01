@@ -15,6 +15,7 @@ class View extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ip');
+            $table->string('location');
             $table->string('url');
             $table->timestamps();
         });

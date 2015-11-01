@@ -1,0 +1,24 @@
+label {
+    font-weight: 500;
+}
+.blog-archive-block{
+    padding: 60px;
+    background-color: white;
+}
+@media screen and (max-width: 750px){
+    .blog-archive-block{
+        padding: 30px;
+    }
+}
+.blog-archive-block th{
+    font-weight: 500;
+}
+.picture-preview{
+    width: 585px;
+    position: absolute;
+    opacity: 0;
+    display: none;
+    z-index: 2000;
+    max-width: 80%;
+    background-color: white;
+}

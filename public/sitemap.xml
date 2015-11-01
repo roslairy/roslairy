@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>http://127.0.0.1</loc>
+		<priority>1.0</priority>
+		<lastmod>2015-11-01T10:55:12+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/sharpen</loc>
+		<priority>0.9</priority>
+		<lastmod>2015-11-01T10:55:12+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/anecdote</loc>
+		<priority>0.9</priority>
+		<lastmod>2015-11-01T10:55:12+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/mind</loc>
+		<priority>0.9</priority>
+		<lastmod>2015-11-01T10:55:12+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/archive/1</loc>
+		<priority>0.8</priority>
+		<lastmod>2015-10-26T13:41:00+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/archive/2</loc>
+		<priority>0.8</priority>
+		<lastmod>2015-10-25T00:00:00+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/archive/3</loc>
+		<priority>0.8</priority>
+		<lastmod>2015-10-25T00:00:00+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>http://127.0.0.1/archive/4</loc>
+		<priority>0.8</priority>
+		<lastmod>2015-10-26T11:12:33+08:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+</urlset>
+

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Schema;
 use App\IpLocation;
+use App\SitemapMaker;
+use App\GeoipParser;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,15 +15,14 @@ use App\IpLocation;
 |
 */
 
-Route::get('/', ['as' => 'all', 'uses' => 'Visit@all']);
+Route::get('/', ['as' => 'index', 'uses' => 'Visit@index']);
 Route::get('/sharpen', ['as' => 'sharpen', 'uses' => 'Visit@sharpen']);
-Route::get('/creation', ['as' => 'creation', 'uses' => 'Visit@creation']);
 Route::get('/anecdote', ['as' => 'anecdote', 'uses' => 'Visit@anecdote']);
 Route::get('/mind', ['as' => 'mind', 'uses' => 'Visit@mind']);
-Route::get('/search', ['as' => 'search', 'uses' => 'Visit@search']);
+//Route::get('/search', ['as' => 'search', 'uses' => 'Visit@search']);
 
 Route::get('/archive/{id}', ['as' => 'archive', 'uses' => 'Visit@archive']);
-Route::post('/try-mind', ['as' => 'try-mind', 'uses' => 'Visit@tryMind']);
+//Route::post('/try-mind', ['as' => 'try-mind', 'uses' => 'Visit@tryMind']);
 
 Route::post('/send-comment', ['as' => 'send-comment', 'uses' => 'Visit@sendComment']);
 Route::get('/like', ['as' => 'like', 'uses' => 'Visit@like']);
@@ -35,9 +36,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::get('archive/edit/{id}', ['as' => 'archive-edit', 'uses' => 'Admin@archiveEdit']);
 	Route::get('archive/new', ['as' => 'archive-new', 'uses' => 'Admin@archiveNew']);
 	Route::post('archive-save', ['as' => 'archive-save', 'uses' => 'Admin@archiveSave']);
+	Route::post('archive-ajax', ['as' => 'archive-ajax', 'uses' => 'Admin@archiveAjax']);
 	Route::get('archive-delete', ['as' => 'archive-delete', 'uses' => 'Admin@archiveDelete']);
 	Route::get('comment', ['as' => 'comment-manage', 'uses' => 'Admin@comment']);
 	Route::get('comment-delete', ['as' => 'comment-delete', 'uses' => 'Admin@commentDelete']);
 	Route::get('view', ['as' => 'view-manage', 'uses' => 'Admin@view']);
 	Route::get('view-delete', ['as' => 'view-delete', 'uses' => 'Admin@viewDelete']);
+});
+
+Route::get("/test", function(){
+	return GeoipParser::parse("222.20.35.52");
 });

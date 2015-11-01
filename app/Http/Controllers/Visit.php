@@ -19,21 +19,27 @@ class Visit extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function all() {
+	public function index(){
+		
+		$archives = Archive::where("published", "=", 1)
+			->orderBy("created_at", "desc")
+			->take(4)->get();
+		
+		$this->filterList($archives);
+		
 		$data = [
-				'pageName' => 'all',
-				'archives' => Archive::getAll()
+				"pageName" => "index",
+				"archives" => $archives,
 		];
 		
-		return view('index', $data);
+		$this->dataFilter($data);
+		
+		return view("index", $data);
+		
 	}
 	
 	public function sharpen(){
 		return $this->getCategoryView('sharpen');
-	}
-	
-	public function creation(){
-		return $this->getCategoryView('creation');
 	}
 	
 	public function anecdote(){
@@ -52,6 +58,8 @@ class Visit extends Controller {
 				'archives' => $archives
 		];
 		
+		$this->dataFilter($data);
+		
 		return view('index', $data);
 	}
 	
@@ -60,16 +68,14 @@ class Visit extends Controller {
 		if ($archive == null) 
 			return redirect()->route('error', ['error' => 'archive-not-exist']);
 		
-		if ($archive->category == trans('category.mind')){
-			if (Session::get('mindPermission', 'false') != 'true'){
-				return redirect()->route('error', ['error' => 'require-mind-pass']);
-			}
-		}
+		$this->filterArchive($archive);
 		
 		$data = [
 				'pageName' => 'archive',
 				'archive' => $archive
 		];
+		
+		$this->dataFilter($data);
 		
 		return view('archive', $data);
 	}
@@ -110,30 +116,74 @@ class Visit extends Controller {
 		return redirect()->route('archive', ['id' => Input::get('id')]);
 	}
 	
-	public function tryMind(){
-		$pass = Input::get('mind-pass', '');
+// 	public function tryMind(){
+// 		$pass = Input::get('mind-pass', '');
 		
-		if ($pass == env('MIND_PASS')){
-			Session::put('mindPermission', 'true');
-		}
-		else {
-			return redirect()->route('error', ['error' => 'bad-mind-pass']);
-		}
+// 		if ($pass == env('MIND_PASS')){
+// 			Session::put('mindPermission', 'true');
+// 		}
+// 		else {
+// 			return redirect()->route('error', ['error' => 'bad-mind-pass']);
+// 		}
 		
-		return redirect()->route('archive', ['id' => Input::get('id', 1)]);
-	}
+// 		return redirect()->route('archive', ['id' => Input::get('id', 1)]);
+// 	}
 	
 	public function error(){
-		$error = Input::get('error');
-		return view('error', ['pageName' => 'error', 'error' => trans('message.'.$error)]);
+		$error = Input::get('error', "unknown-error");
+		return response()->view(
+				'error', 
+				['pageName' => 'error', 'error' => trans('message.'.$error)],
+				400
+			);
 	}
 	
 	protected function getCategoryView($category){
+		$archives = Archive::where('category', '=', $category)
+			->where("published", "=", 1)
+			->orderBy("created_at", "desc")
+			->paginate(6);
+		$this->filterList($archives);
+		
 		$data = [
 				'pageName' => $category,
-				'archives' => Archive::getWhereCategory(trans("category.$category"))
+				'category' => $category,
+				'archives' => $archives
 		];
 		
-		return view('index', $data);
+		$this->dataFilter($data);
+		
+		return view('category', $data);
+	}
+	
+	protected function filterList(&$archives){
+		$authed = Auth::check();
+		
+		$i = -1;
+		while((++$i) < count($archives)){
+			if (!$authed && $archives[$i]->category == "mind"){
+				$archives[$i]->content = "*****已加密*****";
+			}
+			else {
+				$content = $archives[$i]->content;
+				$content = strip_tags($content);
+				$content = mb_substr($content, 0, 80);
+				$content .= " ...";
+				$archives[$i]->content = $content;
+			}
+		}
+	}
+	
+	protected function filterArchive($archive){
+		$authed = Auth::check();
+		
+		if (!$authed && $archive->category == "mind"){
+			$archive->content = 
+				'<h4 class="text-center">*****已加密,查看朔心内容需登录*****</h4>';
+		}
+	}
+	
+	protected function dataFilter(&$data){
+		$data["authed"] = Auth::check();
 	}
 }
