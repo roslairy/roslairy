@@ -31,7 +31,7 @@
             </div>
             <div class="form-group" id="picture-input">
                 <label for="picture">推荐图片</label>
-                <input name="picture" type="file" class="form-control" id="picture" placeholder="标题" value="">
+                <input name="picture" type="file" class="form-control" id="picture" placeholder="图片" value="">
             </div>
             <div class="checkbox">
                 <label>
@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
                 <label id="umeditor-label" for="umeditor">正文</label>
-                <script name="content" id="umeditor" type="text/plain"></script>
+                <script name="content" id="umeditor" type="text/plain">{!! $archive->content !!}</script>
             </div>
             <button class="btn btn-primary" type="submit">提交</button>
         </form>
