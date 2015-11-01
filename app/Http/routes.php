@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use App\IpLocation;
 use App\SitemapMaker;
 use App\GeoipParser;
+use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -42,8 +43,4 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function(){
 	Route::get('comment-delete', ['as' => 'comment-delete', 'uses' => 'Admin@commentDelete']);
 	Route::get('view', ['as' => 'view-manage', 'uses' => 'Admin@view']);
 	Route::get('view-delete', ['as' => 'view-delete', 'uses' => 'Admin@viewDelete']);
-});
-
-Route::get("/test", function(){
-	return GeoipParser::parse("222.20.35.52");
 });
