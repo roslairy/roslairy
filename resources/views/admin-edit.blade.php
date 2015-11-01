@@ -65,9 +65,9 @@
         $(window).resize(function(){
             window.um.setWidth($('.blog-archive-block').width());
         });
-        setTimeout(function(){
+        window.um.addListener("ready", function(){
             window.um.setWidth($('.blog-archive-block').width());
-        }, 100);
+        });
         setInterval(function(){
             autoSave("{{ route("archive-ajax") }}");
         }, 30000);
