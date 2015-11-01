@@ -15,7 +15,7 @@
             <a href="#" class="thumbnail picture-preview">
                 <img id="picture-preview-img" src="">
             </a>
-            <input id="id" type="hidden" name="id" value="-1">
+            <input id="id" type="hidden" name="id" value="{{ $archive->id }}">
             <h3 class="h3-title">文章编辑器</h3>
             <div class="form-group">
                 <label for="title">文章标题</label>
