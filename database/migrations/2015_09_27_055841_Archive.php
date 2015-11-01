@@ -19,6 +19,9 @@ class Archive extends Migration
             $table->integer('view');
             $table->integer('like');
             $table->text('content');
+            $table->string("picture");
+            $table->boolean("published");
+            $table->boolean("recommended");
             $table->timestamps();
         });
     }

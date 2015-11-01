@@ -12,7 +12,7 @@ class Archive extends Model {
 		return self::orderBy('created_at', 'desc')->paginate($perPage);
 	}
 	
-	public static function getWhereCategory($category, $perPage = 5){
+	public static function getWhereCategory($category, $perPage = 6){
 		$result = self::where('category', '=', $category)->orderBy('created_at', 'desc');
 		return $result->paginate($perPage);
 	}

@@ -9,4 +9,5 @@ return [
     'comment-not-exist' => '评论不存在，3秒后返回。',
     'view-not-exist' => '访问不存在，3秒后返回。',
     'param-wrong' => '请求错误，3秒后返回。',
+    'unknown-error' => '未知错误，3秒后返回。',
 ];

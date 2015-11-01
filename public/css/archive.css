@@ -1,0 +1,8 @@
+body{
+/*	background-color: #1B1B1B;
+*/}
+.main-container{
+    box-shadow: none;
+    overflow: initial;
+    border-radius: 0;
+}
