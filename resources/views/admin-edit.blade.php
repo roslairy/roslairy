@@ -35,12 +35,12 @@
             </div>
             <div class="checkbox">
                 <label>
-                    <input name="published" type="checkbox" {{ $archive->published ? "checked" : "" }}> 公开
+                    <input name="published" type="checkbox" value="1" {{ $archive->published ? "checked" : "" }}> 公开
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input name="recommended" type="checkbox" {{ $archive->recommended ? "checked" : "" }}> 推荐
+                    <input name="recommended" type="checkbox" value="1" {{ $archive->recommended ? "checked" : "" }}> 推荐
                 </label>
             </div>
             <div class="form-group">

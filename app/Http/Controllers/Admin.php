@@ -104,6 +104,8 @@ class Admin extends Controller {
 		$archive->title = Input::get('title');
 		$archive->category = Input::get('category');
 		$archive->content = Input::get('content');
+		$archive->published = Input::get('published', 0);
+		$archive->recommended = Input::get('recommended', 0);
 		$archive->save();
 		
 		if (Req::hasFile("picture")){
