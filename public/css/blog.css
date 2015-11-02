@@ -95,6 +95,13 @@ a:hover{
 .blog-block-title{
     margin-bottom: 30px;
 }
+.blog-block-title a{
+	width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
 .blog-block-author{
     margin-bottom: 30px;
 }
