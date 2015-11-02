@@ -35,6 +35,7 @@
                         <th>{{ $archive->created_at }}</th>
                         <th>{{ $archive->updated_at }}</th>
                         <th>
+                            <a class="btn btn-success btn-xs" href="{{ route('archive', ['id' => $archive->id]) }}">查看</a>
                             <a class="btn btn-primary btn-xs" href="{{ route('archive-edit', ['id' => $archive->id]) }}">修改</a>
                             <a class="btn btn-danger btn-xs" href="{{ route('archive-delete', ['id' => $archive->id]) }}">删除</a>
                         </th>
