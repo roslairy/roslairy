@@ -15,6 +15,11 @@ a:hover{
 	-webkit-transition: color 0.5s; /* Safari 和 Chrome */
 	-o-transition: color 0.5s; /* Opera */
 }
+@media (min-width: 768px) and (max-width: 1200px){
+	.container{
+		width: 100%;
+	}
+}
 .main-container{
     min-height: 500px;
 }
@@ -57,6 +62,9 @@ a:hover{
 }
 .blog-block-picture{
     padding: 0;
+    height: 420px;
+    background-size: cover;
+    background-position: center;
 }
 .blog-block-text{
     padding: 30px 60px;
@@ -176,6 +184,9 @@ a:hover{
     font-size: 1em;
     line-height: 2em;
     color: #2b2b2b;
+}
+.article-content img{
+	max-width: 100%;
 }
 .article-content p, .edui-body-container p{
     text-indent: 0;

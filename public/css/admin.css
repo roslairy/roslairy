@@ -12,6 +12,7 @@ label {
 }
 .blog-archive-block th{
     font-weight: 500;
+    white-space: nowrap;
 }
 .picture-preview{
     width: 585px;
