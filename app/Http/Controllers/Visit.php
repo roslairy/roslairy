@@ -74,6 +74,9 @@ class Visit extends Controller {
 				'pageName' => 'archive',
 				'archive' => $archive
 		];
+
+		$archive->view++;
+		$archive->save();
 		
 		$this->dataFilter($data);
 		
