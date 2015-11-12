@@ -7,7 +7,7 @@
     @for ($i = 0; $i < count($archives); $i++)
     <div class="row">
         <div class="col-sm-6 blog-block-text {{ ($i % 2 == 1) ? "col-sm-push-6" : "" }}">
-            @if ($archives[$i]->recommanded)
+            @if ($archives[$i]->recommended)
             <div class="block-star"><span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span></div>
             @endif
             <h3 class="blog-block-title" title="{{ $archives[$i]->title }}"><a href="{{ route("archive", ['id' => $archives[$i]->id]) }}">{{ $archives[$i]->title }}</a></h3>
