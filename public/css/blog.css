@@ -168,23 +168,27 @@ a:hover{
     background-color: white;
 }
 .article-title{
-    padding-bottom: 20px;
     font-size: 2em;
     color: #5f5f5f;
 }
-.article-title:after{
+/*.article-title:after{
     content: " ";
     display: block;
     max-width: 100px;
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 20px;
     border-bottom: solid 3px #e59442;
-}
+}*/
 .article-info{
     margin-bottom: 30px;
     font-size: 1.1em;
     color: rgba(0, 0, 0, 0.5);
+}
+.article-info:after{
+    content: " ";
+    display: block;
+    max-width: 100px;
+    padding-top: 20px;
+    border-bottom: solid 3px #e59442;
 }
 .article-content, .edui-editor-body .edui-body-container{
     font-family: "Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -200,7 +204,7 @@ a:hover{
 }
 
 @media screen and (min-width: 750px){
-    .article-content{
+    .article-wrapper{
         margin: 0 50px;
     }
 }

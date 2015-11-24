@@ -6,3 +6,12 @@ body{
     overflow: initial;
     border-radius: 0;
 }
+.article-content h4{
+    margin-top: 30px;
+    border-left: solid hsl(30, 76%, 58%);
+    padding-left: 10px;
+}
+.article-content blockquote{
+    font-size: 1em;
+    color: gray;
+}

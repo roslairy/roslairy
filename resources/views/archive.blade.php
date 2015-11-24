@@ -12,17 +12,19 @@
     <div class="row">
         <div class="col-sm-8 col-sm-push-4">
             <article class="article-block outline-box">
-                <h2 class="article-title text-center">{{ $archive->title }}</h2>
-                <h4 class="article-info text-center">{{ $archive->created_at->toDateString() }} <small>{{ trans("category.".$archive->category) }} {{ $archive->like }}个赞</small>
-                @if ($authed)
-                <a class="btn btn-primary btn-xs" href="{{ route("archive-edit", ["id" => $archive->id]) }}">编辑</a>
-                @endif
-                </h4>
-                <div class="article-content">
-                    {!! $archive->content !!}
-                </div>
-                <div class="like-wrapper center-block">
-                    <button class="btn btn-primary like" data-id="{{ $archive->id }}">赞</button>
+                <div class="article-wrapper">
+                    <h2 class="article-title text-left">{{ $archive->title }}</h2>
+                    <h4 class="article-info text-left">{{ $archive->created_at->toDateString() }} <small>{{ trans("category.".$archive->category) }} {{ $archive->like }}个赞</small>
+                    @if ($authed)
+                    <a class="btn btn-primary btn-xs" href="{{ route("archive-edit", ["id" => $archive->id]) }}">编辑</a>
+                    @endif
+                    </h4>
+                    <div class="article-content">
+                        {!! $archive->content !!}
+                    </div>
+                    <div class="like-wrapper center-block">
+                        <button class="btn btn-primary like" data-id="{{ $archive->id }}">赞</button>
+                    </div>
                 </div>
             </article>
         </div>
