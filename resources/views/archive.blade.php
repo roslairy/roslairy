@@ -10,10 +10,10 @@
 @section("body")
 <div class="container main-container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-8 col-sm-push-4">
             <article class="article-block outline-box">
                 <h2 class="article-title text-center">{{ $archive->title }}</h2>
-                <h4 class="article-info text-center">{{ $archive->created_at->toDateString() }} <small>{{ trans("category.".$archive->category) }} {{ $archive->like }}个赞</small> 
+                <h4 class="article-info text-center">{{ $archive->created_at->toDateString() }} <small>{{ trans("category.".$archive->category) }} {{ $archive->like }}个赞</small>
                 @if ($authed)
                 <a class="btn btn-primary btn-xs" href="{{ route("archive-edit", ["id" => $archive->id]) }}">编辑</a>
                 @endif
@@ -26,7 +26,7 @@
                 </div>
             </article>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-sm-pull-8">
             <form class="docomment-block outline-box" method="post" action="{{ route("send-comment") }}">
                 <input type="hidden" name="id" value="{{ $archive->id }}">
                 <h3 class="h3-title">发表评论</h3>

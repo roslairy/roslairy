@@ -2,7 +2,7 @@
 <html>
 <head lang="zh">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ isset($pageName) ? ($pageName != "archive" ? trans("title.$pageName") : $archive->title) : "未知页面" }} | Roslairy的小居</title>
     <meta name="keywords" content="博客,个人博客"/>
@@ -80,7 +80,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="input-username">用户名：</label>
-                                <input type="password" class="form-control" id="input-username" placeholder="用户名" name="username" required="">
+                                <input type="text" class="form-control" id="input-username" placeholder="用户名" name="username" required="">
                             </div>
                             <div class="form-group">
                                 <label for="input-password">密码：</label>
