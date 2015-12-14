@@ -67,6 +67,9 @@ class Visit extends Controller {
 		$archive = Archive::find($id);
 		if ($archive == null) 
 			return redirect()->route('error', ['error' => 'archive-not-exist']);
+
+		$archive->view++;
+		$archive->save();
 		
 		$this->filterArchive($archive);
 		
@@ -74,9 +77,6 @@ class Visit extends Controller {
 				'pageName' => 'archive',
 				'archive' => $archive
 		];
-
-		$archive->view++;
-		$archive->save();
 		
 		$this->dataFilter($data);
 		
