@@ -12,13 +12,10 @@ class GeoipParser{
 
 		try {
 			$record = $reader->city($ip);
-			$address = $record->country->names["zh-CN"]."-".$record->city->names["zh-CN"];
+			$address = $record->country->name."-".$record->city->name;
 		}
 		catch (AddressNotFoundException $e) {
 			$address = "无记录";
-		}
-		catch (ErrorException $e) {
-			$address = $record->country->name."-".$record->city->name;
 		}
 
 		return $address;
