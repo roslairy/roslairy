@@ -16,7 +16,7 @@
             <p class="blog-block-article">{{ strip_tags($archives[$i]->content) }}</p>
             <a class="btn btn-default" href="{{ route("archive", ['id' => $archives[$i]->id]) }}">阅读全文</a>
         </div>
-        <div class="col-sm-6 blog-block-picture {{ ($i % 2 == 1) ? "col-sm-pull-6" : "" }}" style="background-image: url('uploadimg/{{ $archives[$i]->picture }}')">
+        <div class="col-sm-6 blog-block-picture {{ ($i % 2 == 1) ? "col-sm-pull-6" : "" }}" style="background-image: url('{{ $archives[$i]->picture }}')">
         </div>
     </div>
     @endfor

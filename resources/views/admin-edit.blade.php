@@ -32,9 +32,9 @@
                     <option {{ "mind" == $archive->category ? 'selected' : '' }} value="mind">{{ trans("category.mind") }}</option>
                 </select>
             </div>
-            <div class="form-group" id="picture-input">
+            <div class="form-group">
                 <label for="picture">推荐图片</label>
-                <input name="picture" type="file" class="form-control" id="picture" placeholder="图片" value="">
+                <input name="picture" type="text" class="form-control" id="picture" placeholder="图片地址" value="{{ $archive->picture }}">
             </div>
             <div class="checkbox">
                 <label>

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/blog.css">
     @yield('extCss', '')
-    <link rel="icon" sizes="any" mask="" href="/img/favicon.svg">
+    <link type="image/x-icon" rel="shortcut icon" href="/img/favicon.ico">
 </head>
 <body>
 @yield("header-img", "")

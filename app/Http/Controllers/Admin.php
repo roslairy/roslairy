@@ -94,7 +94,6 @@ class Admin extends Controller {
 		$v = Validator::make(Input::all(), [
 				'title' => 'required',
 				'category' => 'required',
-				'content' => 'required',
 		]);
 		if ($v->fails()){
 			return redirect()->route('error', ['error' => 'param-wrong']);
@@ -104,18 +103,19 @@ class Admin extends Controller {
 
 		$archive->title = Input::get('title');
 		$archive->category = Input::get('category');
+		$archive->picture = Input::get('picture', '');
 		$archive->content = Input::get('content');
 		$archive->published = Input::get('published', 0);
 		$archive->recommended = Input::get('recommended', 0);
 		$archive->save();
 
-		if (Req::hasFile("picture")){
-			$fileName = str_random(8).$archive->id.".jpg";
-			$file = Req::file("picture");
-			$file->move(public_path("uploadimg"), $fileName);
-			$archive->picture = $fileName;
-			$archive->save();
-		}
+		// if (Req::hasFile("picture")){
+		// 	$fileName = str_random(8).$archive->id.".jpg";
+		// 	$file = Req::file("picture");
+		// 	$file->move(public_path("uploadimg"), $fileName);
+		// 	$archive->picture = $fileName;
+		// 	$archive->save();
+		// }
 
 		// push to baidu
 		$pusher = new BaiduPusher;
