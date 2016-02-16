@@ -5,5 +5,5 @@ return [
     'sharpen' => '利器',
     'anecdote' => '觅梦',
     'mind' => '朔心',
-    'new' => '新柳',
+    'new' => '最新文章',
 ];

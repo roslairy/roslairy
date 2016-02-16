@@ -11,8 +11,7 @@
 @section("body")
 <div class="logo">
     <div class="container">
-        <img class="header-title center-block" src="img/logo.png">
-        <img class="header-title center-block" src="img/poem.png">
+        <img class="header-title" src="img/BAND.png">
     </div>
 </div>
 @include("com-articleList", ["archives" => $archives, "category" => "new", "wannamore" => true])

@@ -1,5 +1,5 @@
 body{
-    background-color: #F9F9F9;
+    background-color: #EAEAEA;
 }
 a{
     color: rgb(70, 70, 70);
@@ -11,6 +11,7 @@ a{
 a:hover{
 	color: #e59442;
 	transition: color 0.5s;
+    text-decoration: none;
 	-moz-transition: color 0.5s; /* Firefox 4 */
 	-webkit-transition: color 0.5s; /* Safari 和 Chrome */
 	-o-transition: color 0.5s; /* Opera */
@@ -23,9 +24,9 @@ a:hover{
 .main-container{
     min-height: 500px;
 }
-.shadow-box{
+/*.shadow-box{
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-}
+}*/
 .outline-box{
     outline: solid 1px #e7e7e7;
 }
@@ -33,17 +34,25 @@ a:hover{
     border-radius: 0;
 }
 
+.small-logo, .navbar-brand>img{
+    display: inline-block;
+    height: 100%;
+    padding-right: 20px;
+    margin-top: -3px;
+}
+
 .sort-title{
     padding: 20px;
-    background-color: #fff;/*
+    background-color: #fff;
+    /*
     background-image: url("/uploadimg/pic2.jpg");
     background-size: cover;*/
 }
 .sort-title h2{
-    margin-top: 30px;
+    margin-top: 80px;
     margin-bottom: 30px;
     color: rgb(70, 70, 70);
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: 500;
 }
 /*.sort-title h2:before, .sort-title h2:after{
@@ -70,6 +79,10 @@ a:hover{
     padding: 30px 60px;
     height: 420px;
     overflow: hidden;
+      background-color: #F7F7F7;
+}
+.blog-block-text-first{
+  background-color: #F7F7F7;
 }
 .blog-block-picture img{
     width: 100%;
@@ -78,7 +91,7 @@ a:hover{
 .block-star{
     position: absolute;
     transform: rotate(45deg);
-    background-color: #e59442;
+    background-color: transparent;
     height: 100px;
     width: 100px;
     top: -50px;
@@ -86,8 +99,8 @@ a:hover{
 }
 .block-star span{
     display: inline-block;
-    color: #ffffff;
-    font-size: 1.5em;
+    color: #e59442;
+    font-size: 1.5rem;
     position: absolute;
     right: 10px;
     top: 40px;
@@ -107,7 +120,6 @@ a:hover{
 }
 .blog-block-line{
     width: 100px;
-    margin-left: 10px;
     border-top: 2px solid #e59442;
     margin-bottom: 20px;
 }
@@ -117,9 +129,9 @@ a:hover{
     line-height: 2em;
     margin-bottom: 30px;
 }
-.btn{
+/*.btn{
     border-radius: 0;
-}
+}*/
 
 .wannamore{
     height: 545px;
@@ -131,6 +143,11 @@ a:hover{
 .wannamore h2{
     margin: 0;
     padding-top: 100px;
+}
+
+.pagination-arrow{
+    padding: 50px 0;
+    background-color: #F3F3F3;
 }
 
 .footer{
@@ -254,7 +271,7 @@ a:hover{
 }
 .like-wrapper{
     width: 80px;
-    margin-top: 60px;
+    margin-top: 100px;
     margin-bottom: 30px;
 }
 .like{

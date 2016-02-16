@@ -11,7 +11,7 @@
 <div class="container main-container">
     <div class="row">
         <div class="blog-archive-block outline-box">
-            <h3 class="h3-title">文章编辑器</h3>
+            <h3 class="h3-title">评论编辑器</h3>
             <div class="blog-table table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>

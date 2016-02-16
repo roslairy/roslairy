@@ -11,7 +11,7 @@
 <div class="container main-container">
     <div class="row">
         <div class="col-sm-8 col-sm-push-4">
-            <article class="article-block outline-box">
+            <article class="article-block">
                 <div class="article-wrapper">
                     <h2 class="article-title text-left">{{ $archive->title }}</h2>
                     <h4 class="article-info text-left">{{ $archive->created_at->toDateString() }} <small>{{ trans("category.".$archive->category) }} {{ $archive->like }}个赞</small>
@@ -29,7 +29,7 @@
             </article>
         </div>
         <div class="col-sm-4 col-sm-pull-8">
-            <form class="docomment-block outline-box" method="post" action="{{ route("send-comment") }}">
+            <form class="docomment-block" method="post" action="{{ route("send-comment") }}">
                 <input type="hidden" name="id" value="{{ $archive->id }}">
                 <h3 class="h3-title">发表评论</h3>
                 <div class="form-group">
@@ -40,7 +40,7 @@
                 </div>
                 <button class="btn btn-primary">提交</button>
             </form>
-            <div class="comment-block outline-box">
+            <div class="comment-block">
                 <h3 class="h3-title">评论</h3>
                 @foreach($archive->comments as $comment)
                 <div class="comment">

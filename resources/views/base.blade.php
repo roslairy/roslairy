@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/blog.css">
     @yield('extCss', '')
-    <link type="image/x-icon" rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" sizes="any" mask="" href="/img/favicon.svg">
 </head>
 <body>
 @yield("header-img", "")
@@ -25,17 +25,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route("index") }}">roslairy.</a>
+            {{-- <img class="small-logo" src="/img/lg.png"> --}}
+            <a class="navbar-brand" href="{{ route("index") }}"></img><span class="brand-word">roslairy.</span></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ route("sharpen") }}">利器</a></li>
                 <li><a href="{{ route("anecdote") }}">觅梦</a></li>
                 <li><a href="{{ route("mind") }}">朔心</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 <li><a {!! (isset($authed) && $authed) ? "" : 'id="login-modal-trigger"' !!} href="/admin/archive">自省</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
