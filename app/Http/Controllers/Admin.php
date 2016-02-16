@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request as Req;
 use Illuminate\Support\Facades\Log;
 use App\BaiduPusher;
+use App\SitemapMaker;
 
 class Admin extends Controller {
 
@@ -118,18 +119,21 @@ class Admin extends Controller {
 		// }
 
 		// push to baidu
-		$pusher = new BaiduPusher;
-		$pusher->addUrl(route("archive", ['id' => $archive->id]));
-		$response = $pusher->push();
-		if ($response->getStatusCode() != 200){
-			Log::warning('BaiduPusher: Failed to push url. Response Data: ' . $response->getBody()->getContents());
-		}
-		else {
-			$resData = json_decode($response->getBody()->getContents());
-			if ($resData->success == 0){
-				Log::warning('BaiduPusher: No Successful Push.');
-			}
-		}
+		// $pusher = new BaiduPusher;
+		// $pusher->addUrl(route("archive", ['id' => $archive->id]));
+		// $response = $pusher->push();
+		// if ($response->getStatusCode() != 200){
+		// 	Log::warning('BaiduPusher: Failed to push url. Response Data: ' . $response->getBody()->getContents());
+		// }
+		// else {
+		// 	$resData = json_decode($response->getBody()->getContents());
+		// 	if ($resData->success == 0){
+		// 		Log::warning('BaiduPusher: No Successful Push.');
+		// 	}
+		// }
+
+		// update sitemap
+		SitemapMaker::make();
 
 		return redirect()->route('archive-manage');
 	}
