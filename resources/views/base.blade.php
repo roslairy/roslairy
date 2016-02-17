@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="/css/blog.css">
     @yield('extCss', '')
     <link type="image/x-icon" rel="shortcut icon" href="/img/favicon.ico">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?87bc9850ad0ed5b2515274689a1c56a9";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 </head>
 <body>
 @yield("header-img", "")
